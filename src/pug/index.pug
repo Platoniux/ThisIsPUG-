@@ -1,0 +1,40 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    link(rel="stylesheet" href="css/main.css")
+    link(href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet")
+    title="Menu"
+  body
+    div.menu
+      div.menu__close
+        svg(viewBox="0 0 20 20" height="20").menu__svg
+          line(x1="15" y1="1" x2="1" y2="15" stroke-width="4" stroke="white").menu__line
+          line(x1="1" y1="1" x2="15" y2="15" stroke-width="4" stroke="white").menu__line
+      - var item = ['HOME', 'ABOUT', 'WORK', 'SERVICES', 'TEAM', 'CONTACT'];
+      ul.menu__items
+        each it in item
+          li.menu__item
+            a(href="#").menu__link= it
+        li.menu__item
+          - var user = {log: 'LOGOUT'};
+          if user.log
+            a(href="#").menu__link= user.log
+          else
+            a(href="#") LOGIN
+      address.menu__address (095)555 - 1234 <br>
+        a(href="mailto:mail@domain.com").menu__link mail@domain.com
+      mixin social(name)
+        li.menu__social
+          a(href="#").menu__soc-link= name
+      ul.menu__soc
+        +social("f")
+        +social("g")
+        +social("t")
+
+
+
+
+
+
